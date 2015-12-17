@@ -71,3 +71,35 @@ target_link_libraries(Pyramid
 add_dependencies(Pyramid gltools)
 
 create_target_launcher(Pyramid WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/Chapter05/Pyramid/")
+
+add_executable(SphereWorld
+    Chapter05/SphereWorld/SphereWorld.cpp
+)
+
+set_target_properties(SphereWorld PROPERTIES
+    COMPILE_DEFINITIONS GLEW_STATIC
+)
+
+target_link_libraries(SphereWorld
+    lib/$<$<CONFIG:Debug>:Debug>$<$<NOT:$<CONFIG:Debug>>:Release>/gltools
+)
+
+add_dependencies(SphereWorld gltools)
+
+create_target_launcher(SphereWorld WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/Chapter05/SphereWorld/")
+
+add_executable(Tunnel
+    Chapter05/Tunnel/Tunnel.cpp
+)
+
+set_target_properties(Tunnel PROPERTIES
+    COMPILE_DEFINITIONS GLEW_STATIC
+)
+
+target_link_libraries(Tunnel
+    lib/$<$<CONFIG:Debug>:Debug>$<$<NOT:$<CONFIG:Debug>>:Release>/gltools
+)
+
+add_dependencies(Tunnel gltools)
+
+create_target_launcher(Tunnel WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/Chapter05/Tunnel/")
