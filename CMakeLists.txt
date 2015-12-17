@@ -40,6 +40,22 @@ set_target_properties(gltools PROPERTIES
     ARCHIVE_OUTPUT_DIRECTORY lib/$<$<CONFIG:Debug>:Debug>$<$<NOT:$<CONFIG:Debug>>:Release>
 )
 
+add_executable(Anisotropic
+    Chapter05/Anisotropic/Tunnel.cpp
+)
+
+set_target_properties(Anisotropic PROPERTIES
+    COMPILE_DEFINITIONS GLEW_STATIC
+)
+
+target_link_libraries(Anisotropic
+    lib/$<$<CONFIG:Debug>:Debug>$<$<NOT:$<CONFIG:Debug>>:Release>/gltools
+)
+
+add_dependencies(Anisotropic gltools)
+
+create_target_launcher(Anisotropic WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/Chapter05/Anisotropic/")
+
 add_executable(Pyramid
     Chapter05/Pyramid/Pyramid.cpp
 )
