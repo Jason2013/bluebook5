@@ -41,6 +41,7 @@ GLint				rectReplaceShader;
 GLint				locRectMVP;
 GLint				locRectTexture;
 
+int g_winWidth, g_winHeight;
 
 void DrawSongAndDance(GLfloat yRot)		// Called to draw dancing objects
 	{
@@ -321,7 +322,7 @@ void RenderScene(void)
     // Creating this matrix really doesn't need to be done every frame. I'll leave it here
     // so all the pertenant code is together
     M3DMatrix44f mScreenSpace;
-    m3dMakeOrthographicMatrix(mScreenSpace, 0.0f, 800.0f, 0.0f, 600.0f, -1.0f, 1.0f);
+    m3dMakeOrthographicMatrix(mScreenSpace, 0.0f, g_winWidth, 0.0f, g_winHeight, -1.0f, 1.0f);
         
     // Turn blending on, and depth testing off
 	glEnable(GL_BLEND);
@@ -374,6 +375,8 @@ void ChangeSize(int nWidth, int nHeight)
 	viewFrustum.SetPerspective(35.0f, float(nWidth)/float(nHeight), 1.0f, 100.0f);
 	projectionMatrix.LoadMatrix(viewFrustum.GetProjectionMatrix());
 	modelViewMatrix.LoadIdentity();
+	g_winWidth = nWidth;
+	g_winHeight = nHeight;
 	}
 
 int main(int argc, char* argv[])
