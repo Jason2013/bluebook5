@@ -104,6 +104,22 @@ add_dependencies(Tunnel gltools)
 
 create_target_launcher(Tunnel WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/Chapter05/Tunnel/")
 
+add_executable(CubeMapped
+    Chapter07/CubeMapped/Cubemap.cpp
+)
+
+set_target_properties(CubeMapped PROPERTIES
+    COMPILE_DEFINITIONS GLEW_STATIC
+)
+
+target_link_libraries(CubeMapped
+    lib/$<$<CONFIG:Debug>:Debug>$<$<NOT:$<CONFIG:Debug>>:Release>/gltools
+)
+
+add_dependencies(CubeMapped gltools)
+
+create_target_launcher(CubeMapped WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/Chapter07/CubeMapped/")
+
 add_executable(TextureRect
     Chapter07/TextureRect/SphereWorld.cpp
 )
