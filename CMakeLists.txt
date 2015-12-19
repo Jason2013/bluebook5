@@ -103,3 +103,22 @@ target_link_libraries(Tunnel
 add_dependencies(Tunnel gltools)
 
 create_target_launcher(Tunnel WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/Chapter05/Tunnel/")
+
+add_executable(explode
+    Chapter11/Convolution/explode.h
+    Chapter11/Convolution/explode.cpp
+    Chapter11/Convolution/GLMain.cpp
+)
+
+set_target_properties(explode PROPERTIES
+    COMPILE_DEFINITIONS GLEW_STATIC
+    LINK_FLAGS "/SUBSYSTEM:WINDOWS"
+)
+
+target_link_libraries(explode
+    lib/$<$<CONFIG:Debug>:Debug>$<$<NOT:$<CONFIG:Debug>>:Release>/gltools
+)
+
+add_dependencies(explode gltools)
+
+create_target_launcher(explode WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/Chapter11/Convolution/")
