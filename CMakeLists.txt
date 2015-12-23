@@ -120,6 +120,22 @@ add_dependencies(CubeMapped gltools)
 
 create_target_launcher(CubeMapped WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/Chapter07/CubeMapped/")
 
+add_executable(MultiTexture
+    Chapter07/MultiTexture/MultiTexture.cpp
+)
+
+set_target_properties(MultiTexture PROPERTIES
+    COMPILE_DEFINITIONS GLEW_STATIC
+)
+
+target_link_libraries(MultiTexture
+    lib/$<$<CONFIG:Debug>:Debug>$<$<NOT:$<CONFIG:Debug>>:Release>/gltools
+)
+
+add_dependencies(MultiTexture gltools)
+
+create_target_launcher(MultiTexture WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/Chapter07/MultiTexture/")
+
 add_executable(TextureRect
     Chapter07/TextureRect/SphereWorld.cpp
 )
