@@ -144,7 +144,7 @@ void SetupRC()
 	// Black
 	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 
-    ninja.LoadFromSBM("../../../Src/Models/Ninja/ninja.sbm",
+    ninja.LoadFromSBM("../../Models/Ninja/ninja.sbm",
         GLT_ATTRIBUTE_VERTEX,
         GLT_ATTRIBUTE_NORMAL,
         GLT_ATTRIBUTE_TEXTURE0);
@@ -181,7 +181,7 @@ void SetupRC()
 
     glGenTextures(1, ninjaTex);
 	glBindTexture(GL_TEXTURE_2D, ninjaTex[0]);
-	LoadBMPTexture("../../../Src/Models/Ninja/NinjaComp.bmp", GL_LINEAR, GL_LINEAR, GL_CLAMP);
+	LoadBMPTexture("../../Models/Ninja/NinjaComp.bmp", GL_LINEAR, GL_LINEAR, GL_CLAMP);
 
 	glGenFramebuffers(1,&fboName);
 
