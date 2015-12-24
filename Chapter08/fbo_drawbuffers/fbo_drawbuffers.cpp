@@ -488,7 +488,7 @@ void RenderScene(void)
 {
 	static CStopWatch animationTimer;
 	float yRot = animationTimer.GetElapsedSeconds() * 60.0f;
-	MoveCamera();
+	//MoveCamera();
 
 	modelViewMatrix.PushMatrix();	
 		M3DMatrix44f mCamera;

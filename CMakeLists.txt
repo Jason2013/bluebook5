@@ -14,7 +14,7 @@ include_directories(C:/chenchang/dev/glew-1.13.0/include
 
 link_libraries(opengl32.lib
     C:/chenchang/dev/glew-1.13.0/build/cmake/bld/lib/$<$<CONFIG:Debug>:Debug>$<$<NOT:$<CONFIG:Debug>>:Release>/libglew32$<$<CONFIG:Debug>:d>.lib
-    C:/chenchang/dev/freeglut-3.0.0/bld/lib/$<$<CONFIG:Debug>:Debug>$<$<NOT:$<CONFIG:Debug>>:Release>/freeglut$<$<CONFIG:Debug>:_staticd>.lib
+    C:/chenchang/dev/freeglut-3.0.0/bld/lib/$<$<CONFIG:Debug>:Debug>$<$<NOT:$<CONFIG:Debug>>:Release>/freeglut_static$<$<CONFIG:Debug>:d>.lib
 )
 
 add_library(gltools STATIC
@@ -183,6 +183,59 @@ target_link_libraries(TextureRect
 add_dependencies(TextureRect gltools)
 
 create_target_launcher(TextureRect WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/Chapter07/TextureRect/")
+
+add_executable(fbo_drawbuffers
+    Chapter08/fbo_drawbuffers/fbo_drawbuffers.cpp
+    Models/Ninja/sbm.cpp
+)
+
+target_include_directories(fbo_drawbuffers PUBLIC
+    Models/Ninja
+)
+
+set_target_properties(fbo_drawbuffers PROPERTIES
+    COMPILE_DEFINITIONS GLEW_STATIC
+)
+
+target_link_libraries(fbo_drawbuffers
+    lib/$<$<CONFIG:Debug>:Debug>$<$<NOT:$<CONFIG:Debug>>:Release>/gltools
+)
+
+add_dependencies(fbo_drawbuffers gltools)
+
+create_target_launcher(fbo_drawbuffers WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/Chapter08/fbo_drawbuffers/")
+
+add_executable(fbo_textures
+    Chapter08/fbo_textures/fbo_textures.cpp
+)
+
+set_target_properties(fbo_textures PROPERTIES
+    COMPILE_DEFINITIONS GLEW_STATIC
+)
+
+target_link_libraries(fbo_textures
+    lib/$<$<CONFIG:Debug>:Debug>$<$<NOT:$<CONFIG:Debug>>:Release>/gltools
+)
+
+add_dependencies(fbo_textures gltools)
+
+create_target_launcher(fbo_textures WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/Chapter08/fbo_textures/")
+
+add_executable(pix_buffs
+    Chapter08/pix_buffs/pix_buffs.cpp
+)
+
+set_target_properties(pix_buffs PROPERTIES
+    COMPILE_DEFINITIONS GLEW_STATIC
+)
+
+target_link_libraries(pix_buffs
+    lib/$<$<CONFIG:Debug>:Debug>$<$<NOT:$<CONFIG:Debug>>:Release>/gltools
+)
+
+add_dependencies(pix_buffs gltools)
+
+create_target_launcher(pix_buffs WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/Chapter08/pix_buffs/")
 
 add_executable(explode
     Chapter11/Convolution/explode.h

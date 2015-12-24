@@ -87,10 +87,12 @@ void UpdateFrameCount()
         float fps;
 
         fps = 100.0f / frameTimer.GetElapsedSeconds();
+		static char szTitle[60];
 		if (bUsePBOPath)
-			printf("Pix_buffs - Using PBOs  %.1f fps\n", fps);
+			sprintf(szTitle, "Pix_buffs - Using PBOs  %.1f fps", fps);
 		else
-			printf("Pix_buffs - Using Client mem copies %.1f fps\n", fps);
+			sprintf(szTitle, "Pix_buffs - Using Client mem copies %.1f fps", fps);
+		glutSetWindowTitle(szTitle);
 
         frameTimer.Reset();
         iFrames = 1;
