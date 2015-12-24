@@ -149,8 +149,8 @@ void SetupRC()
         GLT_ATTRIBUTE_NORMAL,
         GLT_ATTRIBUTE_TEXTURE0);
 
-	gltMakeTorus(torusBatch, 0.4f, 0.15f, 35, 35);
-	gltMakeSphere(sphereBatch, 0.1f, 26, 13);
+	//gltMakeTorus(torusBatch, 0.4f, 0.15f, 35, 35);
+	//gltMakeSphere(sphereBatch, 0.1f, 26, 13);
 
 	GLfloat alpha = 0.25f;
 	floorBatch.Begin(GL_TRIANGLE_FAN, 4, 1);
@@ -188,7 +188,7 @@ void SetupRC()
 	// Create depth renderbuffer
 	glGenRenderbuffers(1, &depthBufferName);
 	glBindRenderbuffer(GL_RENDERBUFFER, depthBufferName);
-	glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH_COMPONENT32, screenWidth, screenHeight);
+	glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH_COMPONENT, screenWidth, screenHeight);
 	
 	// Create 3 color renderbuffers
 	glGenRenderbuffers(3, renderBufferNames);
@@ -384,7 +384,7 @@ void ChangeSize(int nWidth, int nHeight)
 	screenHeight = nHeight;
 
 	glBindRenderbuffer(GL_RENDERBUFFER, depthBufferName);
-	glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH_COMPONENT32, screenWidth, screenHeight);
+	glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH_COMPONENT, screenWidth, screenHeight);
 	glBindRenderbuffer(GL_RENDERBUFFER, renderBufferNames[0]);
 	glRenderbufferStorage(GL_RENDERBUFFER, GL_RGBA8, screenWidth, screenHeight);
 	glBindRenderbuffer(GL_RENDERBUFFER, renderBufferNames[1]);
@@ -526,7 +526,7 @@ void RenderScene(void)
 	{
 		// Direct drawing to the window
 		glBindFramebuffer(GL_DRAW_FRAMEBUFFER, 0);
-		glDrawBuffers(1, windowBuff);
+		//glDrawBuffers(1, windowBuff);
 		glViewport(0, 0, screenWidth, screenHeight);
 
 		// Source buffer reads from the framebuffer object
@@ -551,7 +551,7 @@ void RenderScene(void)
 						  screenWidth, screenHeight,
 						  GL_COLOR_BUFFER_BIT, GL_LINEAR );
 
-		glBindTexture(GL_TEXTURE_2D, 0);
+		//glBindTexture(GL_TEXTURE_2D, 0);
 	} 
 
     // Do the buffer Swap
