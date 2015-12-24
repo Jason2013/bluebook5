@@ -152,6 +152,22 @@ add_dependencies(PointSprites gltools)
 
 create_target_launcher(PointSprites WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/Chapter07/PointSprites/")
 
+add_executable(TextureArrays
+    Chapter07/TextureArrays/TextureArrays.cpp
+)
+
+set_target_properties(TextureArrays PROPERTIES
+    COMPILE_DEFINITIONS GLEW_STATIC
+)
+
+target_link_libraries(TextureArrays
+    lib/$<$<CONFIG:Debug>:Debug>$<$<NOT:$<CONFIG:Debug>>:Release>/gltools
+)
+
+add_dependencies(TextureArrays gltools)
+
+create_target_launcher(TextureArrays WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/Chapter07/TextureArrays/")
+
 add_executable(TextureRect
     Chapter07/TextureRect/SphereWorld.cpp
 )
