@@ -182,9 +182,9 @@ void SetupRC(void)
 
     // XXX I don't think this is necessary. Should set texture data to NULL
 	// Allocate a pixel buffer to initialize textures and PBOs
-	pixelDataSize = screenWidth*screenHeight*3*sizeof(unsigned int); // XXX This should be unsigned byte
-	void* data = (void*)malloc(pixelDataSize);
-	memset(data, 0x00, pixelDataSize);
+	//pixelDataSize = screenWidth*screenHeight*3*sizeof(unsigned char); // XXX This should be unsigned byte
+	//void* data = (void*)malloc(pixelDataSize);
+	//memset(data, 0x00, pixelDataSize);
 
 	// Setup 6 texture units for blur effect
 	// Initialize texture data
@@ -196,14 +196,14 @@ void SetupRC(void)
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP);
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, screenWidth, screenHeight, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
+		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, screenWidth, screenHeight, 0, GL_RGB, GL_UNSIGNED_BYTE, NULL);
 	}
 
 	// Alloc space for copying pixels so we dont call malloc on every draw
 	glGenBuffers(1, pixBuffObjs);
-	glBindBuffer(GL_PIXEL_PACK_BUFFER, pixBuffObjs[0]);
-	glBufferData(GL_PIXEL_PACK_BUFFER, pixelDataSize, pixelData, GL_DYNAMIC_COPY);
-	glBindBuffer(GL_PIXEL_PACK_BUFFER, 0);
+	//glBindBuffer(GL_PIXEL_PACK_BUFFER, pixBuffObjs[0]);
+	//glBufferData(GL_PIXEL_PACK_BUFFER, pixelDataSize, NULL, GL_DYNAMIC_COPY);
+	//glBindBuffer(GL_PIXEL_PACK_BUFFER, 0);
 
 	// Create geometry and a matrix for screen aligned drawing
 	gltGenerateOrtho2DMat(screenWidth, screenHeight, orthoMatrix, screenQuad);
@@ -257,12 +257,12 @@ void ChangeSize(int nWidth, int nHeight)
 	gltGenerateOrtho2DMat(screenWidth, screenHeight, orthoMatrix, screenQuad);
 
 	free(pixelData);
-	pixelDataSize = screenWidth*screenHeight*3*sizeof(unsigned int);
+	pixelDataSize = screenWidth*screenHeight*3*sizeof(unsigned char);
 	pixelData = (void*)malloc(pixelDataSize);
 
 	//  Resize PBOs
 	glBindBuffer(GL_PIXEL_PACK_BUFFER, pixBuffObjs[0]);
-	glBufferData(GL_PIXEL_PACK_BUFFER, pixelDataSize, pixelData, GL_DYNAMIC_COPY);
+	glBufferData(GL_PIXEL_PACK_BUFFER, pixelDataSize, NULL, GL_DYNAMIC_COPY);
 	glBindBuffer(GL_PIXEL_PACK_BUFFER, 0);
 
 	gltCheckErrors();
