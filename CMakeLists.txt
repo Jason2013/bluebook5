@@ -237,6 +237,135 @@ add_dependencies(pix_buffs gltools)
 
 create_target_launcher(pix_buffs WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/Chapter08/pix_buffs/")
 
+add_executable(oit
+    Chapter10/oit/oit.cpp
+)
+
+set_target_properties(oit PROPERTIES
+    COMPILE_DEFINITIONS GLEW_STATIC
+)
+
+target_link_libraries(oit
+    lib/$<$<CONFIG:Debug>:Debug>$<$<NOT:$<CONFIG:Debug>>:Release>/gltools
+)
+
+add_dependencies(oit gltools)
+
+create_target_launcher(oit WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/Chapter10/oit/")
+
+add_executable(Convolution
+    Chapter11/Convolution/explode.cpp
+    Chapter11/Convolution/GLMain.cpp
+)
+
+set_target_properties(Convolution PROPERTIES
+    COMPILE_DEFINITIONS GLEW_STATIC
+)
+
+target_link_libraries(Convolution
+    lib/$<$<CONFIG:Debug>:Debug>$<$<NOT:$<CONFIG:Debug>>:Release>/gltools
+)
+
+add_dependencies(Convolution gltools)
+
+create_target_launcher(Convolution WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/Chapter11/Convolution/")
+
+add_executable(GSCulling
+    Chapter11/GSCulling/GSCulling.cpp
+)
+
+set_target_properties(GSCulling PROPERTIES
+    COMPILE_DEFINITIONS GLEW_STATIC
+)
+
+target_link_libraries(GSCulling
+    lib/$<$<CONFIG:Debug>:Debug>$<$<NOT:$<CONFIG:Debug>>:Release>/gltools
+)
+
+add_dependencies(GSCulling gltools)
+
+create_target_launcher(GSCulling WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/Chapter11/GSCulling/")
+
+add_executable(GSExplode
+    Chapter11/GSExplode/GSExplode.cpp
+)
+
+set_target_properties(GSExplode PROPERTIES
+    COMPILE_DEFINITIONS GLEW_STATIC
+)
+
+target_link_libraries(GSExplode
+    lib/$<$<CONFIG:Debug>:Debug>$<$<NOT:$<CONFIG:Debug>>:Release>/gltools
+)
+
+add_dependencies(GSExplode gltools)
+
+create_target_launcher(GSExplode WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/Chapter11/GSExplode/")
+
+add_executable(GSNormals
+    Chapter11/GSNormals/GSNormals.cpp
+)
+
+set_target_properties(GSNormals PROPERTIES
+    COMPILE_DEFINITIONS GLEW_STATIC
+)
+
+target_link_libraries(GSNormals
+    lib/$<$<CONFIG:Debug>:Debug>$<$<NOT:$<CONFIG:Debug>>:Release>/gltools
+)
+
+add_dependencies(GSNormals gltools)
+
+create_target_launcher(GSNormals WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/Chapter11/GSNormals/")
+
+add_executable(GSTessellate
+    Chapter11/GSTessellate/GSTessellate.cpp
+)
+
+set_target_properties(GSTessellate PROPERTIES
+    COMPILE_DEFINITIONS GLEW_STATIC
+)
+
+target_link_libraries(GSTessellate
+    lib/$<$<CONFIG:Debug>:Debug>$<$<NOT:$<CONFIG:Debug>>:Release>/gltools
+)
+
+add_dependencies(GSTessellate gltools)
+
+create_target_launcher(GSTessellate WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/Chapter11/GSTessellate/")
+
+add_executable(Julia
+    Chapter11/Julia/Julia.cpp
+)
+
+set_target_properties(Julia PROPERTIES
+    COMPILE_DEFINITIONS GLEW_STATIC
+)
+
+target_link_libraries(Julia
+    lib/$<$<CONFIG:Debug>:Debug>$<$<NOT:$<CONFIG:Debug>>:Release>/gltools
+)
+
+add_dependencies(Julia gltools)
+
+create_target_launcher(Julia WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/Chapter11/Julia/")
+
+add_executable(Perspective
+    Chapter11/Perspective/Perspective.cpp
+)
+
+set_target_properties(Perspective PROPERTIES
+    COMPILE_DEFINITIONS GLEW_STATIC
+)
+
+target_link_libraries(Perspective
+    lib/$<$<CONFIG:Debug>:Debug>$<$<NOT:$<CONFIG:Debug>>:Release>/gltools
+)
+
+add_dependencies(Perspective gltools)
+
+create_target_launcher(Perspective WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/Chapter11/Perspective/")
+
 add_executable(explode
     Chapter11/Convolution/explode.h
     Chapter11/Convolution/explode.cpp
