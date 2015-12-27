@@ -260,6 +260,7 @@ add_executable(Convolution
 
 set_target_properties(Convolution PROPERTIES
     COMPILE_DEFINITIONS GLEW_STATIC
+    LINK_FLAGS "/SUBSYSTEM:WINDOWS"
 )
 
 target_link_libraries(Convolution
