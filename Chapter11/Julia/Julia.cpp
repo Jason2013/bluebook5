@@ -83,7 +83,7 @@ void SetupRC(void)
     glEnableVertexAttribArray(GLT_ATTRIBUTE_VERTEX);
 
     unsigned char * texture_data = new unsigned char [4096];
-    FILE * f = fopen("E:/source/oglsuperbible/VisualStudio2008/Chapter11/Julia/palette.raw", "rb");
+    FILE * f = fopen("palette.raw", "rb");
     fread(texture_data, 1, 256 * 3, f);
     fclose(f);
 
