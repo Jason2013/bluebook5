@@ -184,6 +184,150 @@ add_dependencies(Smoother gltools)
 
 create_target_launcher(Smoother WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/Chapter03/Smoother/")
 
+add_executable(ModelViewProjection
+    Chapter04/ModelViewProjection/ModelViewProjection.cpp
+)
+
+set_target_properties(ModelViewProjection PROPERTIES
+    COMPILE_DEFINITIONS GLEW_STATIC
+)
+
+target_link_libraries(ModelViewProjection
+    lib/$<$<CONFIG:Debug>:Debug>$<$<NOT:$<CONFIG:Debug>>:Release>/gltools
+)
+
+add_dependencies(ModelViewProjection gltools)
+
+create_target_launcher(ModelViewProjection WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/Chapter04/ModelViewProjection/")
+
+add_executable(Move_ch04
+    Chapter04/Move/Move.cpp
+)
+
+set_target_properties(Move_ch04 PROPERTIES
+    COMPILE_DEFINITIONS GLEW_STATIC
+)
+
+target_link_libraries(Move_ch04
+    lib/$<$<CONFIG:Debug>:Debug>$<$<NOT:$<CONFIG:Debug>>:Release>/gltools
+)
+
+add_dependencies(Move_ch04 gltools)
+
+create_target_launcher(Move_ch04 WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/Chapter04/Move/")
+
+add_executable(Objects
+    Chapter04/Objects/Objects.cpp
+)
+
+set_target_properties(Objects PROPERTIES
+    COMPILE_DEFINITIONS GLEW_STATIC
+)
+
+target_link_libraries(Objects
+    lib/$<$<CONFIG:Debug>:Debug>$<$<NOT:$<CONFIG:Debug>>:Release>/gltools
+)
+
+add_dependencies(Objects gltools)
+
+create_target_launcher(Objects WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/Chapter04/Objects/")
+
+add_executable(OrthoGraphic
+    Chapter04/OrthoGraphic/OrthoGraphic.cpp
+)
+
+set_target_properties(OrthoGraphic PROPERTIES
+    COMPILE_DEFINITIONS GLEW_STATIC
+)
+
+target_link_libraries(OrthoGraphic
+    lib/$<$<CONFIG:Debug>:Debug>$<$<NOT:$<CONFIG:Debug>>:Release>/gltools
+)
+
+add_dependencies(OrthoGraphic gltools)
+
+create_target_launcher(OrthoGraphic WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/Chapter04/OrthoGraphic/")
+
+add_executable(Perspective
+    Chapter04/Perspective/Perspective.cpp
+)
+
+set_target_properties(Perspective PROPERTIES
+    COMPILE_DEFINITIONS GLEW_STATIC
+)
+
+target_link_libraries(Perspective
+    lib/$<$<CONFIG:Debug>:Debug>$<$<NOT:$<CONFIG:Debug>>:Release>/gltools
+)
+
+add_dependencies(Perspective gltools)
+
+create_target_launcher(Perspective WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/Chapter04/Perspective/")
+
+add_executable(SphereWorld
+    Chapter04/SphereWorld/SphereWorld.cpp
+)
+
+set_target_properties(SphereWorld PROPERTIES
+    COMPILE_DEFINITIONS GLEW_STATIC
+)
+
+target_link_libraries(SphereWorld
+    lib/$<$<CONFIG:Debug>:Debug>$<$<NOT:$<CONFIG:Debug>>:Release>/gltools
+)
+
+add_dependencies(SphereWorld gltools)
+
+create_target_launcher(SphereWorld WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/Chapter04/SphereWorld/")
+
+add_executable(SphereWorld2
+    Chapter04/SphereWorld2/SphereWorld2.cpp
+)
+
+set_target_properties(SphereWorld2 PROPERTIES
+    COMPILE_DEFINITIONS GLEW_STATIC
+)
+
+target_link_libraries(SphereWorld2
+    lib/$<$<CONFIG:Debug>:Debug>$<$<NOT:$<CONFIG:Debug>>:Release>/gltools
+)
+
+add_dependencies(SphereWorld2 gltools)
+
+create_target_launcher(SphereWorld2 WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/Chapter04/SphereWorld2/")
+
+add_executable(SphereWorld3
+    Chapter04/SphereWorld3/SphereWorld3.cpp
+)
+
+set_target_properties(SphereWorld3 PROPERTIES
+    COMPILE_DEFINITIONS GLEW_STATIC
+)
+
+target_link_libraries(SphereWorld3
+    lib/$<$<CONFIG:Debug>:Debug>$<$<NOT:$<CONFIG:Debug>>:Release>/gltools
+)
+
+add_dependencies(SphereWorld3 gltools)
+
+create_target_launcher(SphereWorld3 WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/Chapter04/SphereWorld3/")
+
+add_executable(SphereWorld4
+    Chapter04/SphereWorld4/SphereWorld4.cpp
+)
+
+set_target_properties(SphereWorld4 PROPERTIES
+    COMPILE_DEFINITIONS GLEW_STATIC
+)
+
+target_link_libraries(SphereWorld4
+    lib/$<$<CONFIG:Debug>:Debug>$<$<NOT:$<CONFIG:Debug>>:Release>/gltools
+)
+
+add_dependencies(SphereWorld4 gltools)
+
+create_target_launcher(SphereWorld4 WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/Chapter04/SphereWorld4/")
+
 add_executable(Anisotropic
     Chapter05/Anisotropic/Tunnel.cpp
 )
@@ -216,21 +360,21 @@ add_dependencies(Pyramid gltools)
 
 create_target_launcher(Pyramid WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/Chapter05/Pyramid/")
 
-add_executable(SphereWorld
+add_executable(SphereWorld_ch05
     Chapter05/SphereWorld/SphereWorld.cpp
 )
 
-set_target_properties(SphereWorld PROPERTIES
+set_target_properties(SphereWorld_ch05 PROPERTIES
     COMPILE_DEFINITIONS GLEW_STATIC
 )
 
-target_link_libraries(SphereWorld
+target_link_libraries(SphereWorld_ch05
     lib/$<$<CONFIG:Debug>:Debug>$<$<NOT:$<CONFIG:Debug>>:Release>/gltools
 )
 
-add_dependencies(SphereWorld gltools)
+add_dependencies(SphereWorld_ch05 gltools)
 
-create_target_launcher(SphereWorld WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/Chapter05/SphereWorld/")
+create_target_launcher(SphereWorld_ch05 WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/Chapter05/SphereWorld/")
 
 add_executable(Tunnel
     Chapter05/Tunnel/Tunnel.cpp
@@ -495,21 +639,21 @@ add_dependencies(Julia gltools)
 
 create_target_launcher(Julia WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/Chapter11/Julia/")
 
-add_executable(Perspective
+add_executable(Perspective_ch11
     Chapter11/Perspective/Perspective.cpp
 )
 
-set_target_properties(Perspective PROPERTIES
+set_target_properties(Perspective_ch11 PROPERTIES
     COMPILE_DEFINITIONS GLEW_STATIC
 )
 
-target_link_libraries(Perspective
+target_link_libraries(Perspective_ch11
     lib/$<$<CONFIG:Debug>:Debug>$<$<NOT:$<CONFIG:Debug>>:Release>/gltools
 )
 
-add_dependencies(Perspective gltools)
+add_dependencies(Perspective_ch11 gltools)
 
-create_target_launcher(Perspective WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/Chapter11/Perspective/")
+create_target_launcher(Perspective_ch11 WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/Chapter11/Perspective/")
 
 add_executable(explode
     Chapter11/Convolution/explode.h
