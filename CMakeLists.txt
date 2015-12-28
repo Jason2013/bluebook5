@@ -40,6 +40,150 @@ set_target_properties(gltools PROPERTIES
     ARCHIVE_OUTPUT_DIRECTORY lib/$<$<CONFIG:Debug>:Debug>$<$<NOT:$<CONFIG:Debug>>:Release>
 )
 
+add_executable(Block
+    Chapter01/Block/Block.cpp
+)
+
+set_target_properties(Block PROPERTIES
+    COMPILE_DEFINITIONS GLEW_STATIC
+)
+
+target_link_libraries(Block
+    lib/$<$<CONFIG:Debug>:Debug>$<$<NOT:$<CONFIG:Debug>>:Release>/gltools
+)
+
+add_dependencies(Block gltools)
+
+create_target_launcher(Block WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/Chapter01/Block/")
+
+add_executable(Bounce
+    Chapter02/Bounce/Bounce.cpp
+)
+
+set_target_properties(Bounce PROPERTIES
+    COMPILE_DEFINITIONS GLEW_STATIC
+)
+
+target_link_libraries(Bounce
+    lib/$<$<CONFIG:Debug>:Debug>$<$<NOT:$<CONFIG:Debug>>:Release>/gltools
+)
+
+add_dependencies(Bounce gltools)
+
+create_target_launcher(Bounce WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/Chapter02/Bounce/")
+
+add_executable(Move
+    Chapter02/Move/Move.cpp
+)
+
+set_target_properties(Move PROPERTIES
+    COMPILE_DEFINITIONS GLEW_STATIC
+)
+
+target_link_libraries(Move
+    lib/$<$<CONFIG:Debug>:Debug>$<$<NOT:$<CONFIG:Debug>>:Release>/gltools
+)
+
+add_dependencies(Move gltools)
+
+create_target_launcher(Move WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/Chapter02/Move/")
+
+add_executable(Triangle
+    Chapter02/Triangle/Triangle.cpp
+)
+
+set_target_properties(Triangle PROPERTIES
+    COMPILE_DEFINITIONS GLEW_STATIC
+)
+
+target_link_libraries(Triangle
+    lib/$<$<CONFIG:Debug>:Debug>$<$<NOT:$<CONFIG:Debug>>:Release>/gltools
+)
+
+add_dependencies(Triangle gltools)
+
+create_target_launcher(Triangle WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/Chapter02/Triangle/")
+
+add_executable(Blending
+    Chapter03/Blending/Blending.cpp
+)
+
+set_target_properties(Blending PROPERTIES
+    COMPILE_DEFINITIONS GLEW_STATIC
+)
+
+target_link_libraries(Blending
+    lib/$<$<CONFIG:Debug>:Debug>$<$<NOT:$<CONFIG:Debug>>:Release>/gltools
+)
+
+add_dependencies(Blending gltools)
+
+create_target_launcher(Blending WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/Chapter03/Blending/")
+
+add_executable(GeoTest
+    Chapter03/GeoTest/GeoTest.cpp
+)
+
+set_target_properties(GeoTest PROPERTIES
+    COMPILE_DEFINITIONS GLEW_STATIC
+)
+
+target_link_libraries(GeoTest
+    lib/$<$<CONFIG:Debug>:Debug>$<$<NOT:$<CONFIG:Debug>>:Release>/gltools
+)
+
+add_dependencies(GeoTest gltools)
+
+create_target_launcher(GeoTest WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/Chapter03/GeoTest/")
+
+add_executable(Primitives
+    Chapter03/Primitives/Primitives.cpp
+)
+
+set_target_properties(Primitives PROPERTIES
+    COMPILE_DEFINITIONS GLEW_STATIC
+)
+
+target_link_libraries(Primitives
+    lib/$<$<CONFIG:Debug>:Debug>$<$<NOT:$<CONFIG:Debug>>:Release>/gltools
+)
+
+add_dependencies(Primitives gltools)
+
+create_target_launcher(Primitives WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/Chapter03/Primitives/")
+
+add_executable(Scissor
+    Chapter03/Scissor/Scissor.cpp
+)
+
+set_target_properties(Scissor PROPERTIES
+    COMPILE_DEFINITIONS GLEW_STATIC
+)
+
+target_link_libraries(Scissor
+    lib/$<$<CONFIG:Debug>:Debug>$<$<NOT:$<CONFIG:Debug>>:Release>/gltools
+)
+
+add_dependencies(Scissor gltools)
+
+create_target_launcher(Scissor WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/Chapter03/Scissor/")
+
+add_executable(Smoother
+    Chapter03/Smoother/Smoother.cpp
+)
+
+set_target_properties(Smoother PROPERTIES
+    COMPILE_DEFINITIONS GLEW_STATIC
+)
+
+target_link_libraries(Smoother
+    lib/$<$<CONFIG:Debug>:Debug>$<$<NOT:$<CONFIG:Debug>>:Release>/gltools
+)
+
+add_dependencies(Smoother gltools)
+
+create_target_launcher(Smoother WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/Chapter03/Smoother/")
+
 add_executable(Anisotropic
     Chapter05/Anisotropic/Tunnel.cpp
 )
