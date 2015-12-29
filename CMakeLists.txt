@@ -424,6 +424,22 @@ add_dependencies(MultiTexture gltools)
 
 create_target_launcher(MultiTexture WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/Chapter07/MultiTexture/")
 
+add_executable(NormalMapped
+    Chapter07/NormalMapped/NormalMapped.cpp
+)
+
+set_target_properties(NormalMapped PROPERTIES
+    COMPILE_DEFINITIONS GLEW_STATIC
+)
+
+target_link_libraries(NormalMapped
+    lib/$<$<CONFIG:Debug>:Debug>$<$<NOT:$<CONFIG:Debug>>:Release>/gltools
+)
+
+add_dependencies(NormalMapped gltools)
+
+create_target_launcher(NormalMapped WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/Chapter07/NormalMapped/")
+
 add_executable(PointSprites
     Chapter07/PointSprites/PointSprites.cpp
 )
@@ -439,6 +455,22 @@ target_link_libraries(PointSprites
 add_dependencies(PointSprites gltools)
 
 create_target_launcher(PointSprites WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/Chapter07/PointSprites/")
+
+add_executable(SphereMapped
+    Chapter07/SphereMapped/SphereMapped.cpp
+)
+
+set_target_properties(SphereMapped PROPERTIES
+    COMPILE_DEFINITIONS GLEW_STATIC
+)
+
+target_link_libraries(SphereMapped
+    lib/$<$<CONFIG:Debug>:Debug>$<$<NOT:$<CONFIG:Debug>>:Release>/gltools
+)
+
+add_dependencies(SphereMapped gltools)
+
+create_target_launcher(SphereMapped WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/Chapter07/SphereMapped/")
 
 add_executable(TextureArrays
     Chapter07/TextureArrays/TextureArrays.cpp
