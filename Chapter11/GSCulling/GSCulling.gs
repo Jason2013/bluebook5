@@ -32,7 +32,7 @@ void main(void)
     vec3 ab = gl_in[1].gl_Position.xyz - gl_in[0].gl_Position.xyz;
     vec3 ac = gl_in[2].gl_Position.xyz - gl_in[0].gl_Position.xyz;
     vec3 normal = normalize(cross(ab, ac));
-    vec3 transformed_normal = (normalMatrix * normal);
+//    vec3 transformed_normal = (normalMatrix * normal);
     vec4 worldspace = /* mvMatrix * */ gl_in[0].gl_Position;
     vec3 vt = normalize(viewpoint - worldspace.xyz);
 
