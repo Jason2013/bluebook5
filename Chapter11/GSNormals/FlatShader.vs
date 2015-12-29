@@ -2,25 +2,26 @@
 // Vertex Shader
 // Richard S. Wright Jr.
 // OpenGL SuperBible
-#version 130
+#version 150
+
+precision highp float;
 
 // Incoming per vertex... position and normal
 in vec4 vVertex;
 in vec3 vNormal;
 
-out float textureCoordinate;
+uniform vec3 vLightPosition;
+uniform mat4 mvpMatrix;
+uniform mat4 mvMatrix;
+uniform mat3 normalMatrix;
 
-uniform vec3	vLightPosition;
-uniform mat4	mvpMatrix;
-uniform mat4	mvMatrix;
-uniform mat3	normalMatrix;
+out Fragment
+{
+    vec4 color;
+} fragment;
 
-// Transformed vertex position
-out vec4 gl_Position;
-
-
-void main(void) 
-    { 
+void main(void)
+{
     // Get surface normal in eye coordinates
     vec3 vEyeNormal = normalMatrix * vNormal;
 
@@ -32,8 +33,7 @@ void main(void)
     vec3 vLightDir = normalize(vLightPosition - vPosition3);
 
     // Dot product gives us diffuse intensity
-    textureCoordinate = max(0.0, dot(vEyeNormal, vLightDir));
+    fragment.color = vec4(0.0, 0.0, 0.6, 1.0) * max(0.0, dot(vEyeNormal, vLightDir));
 
-    // Don't forget to transform the geometry!
     gl_Position = mvpMatrix * vVertex;
-    }
+}
